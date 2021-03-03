@@ -1,0 +1,25 @@
+<div style="border: 1px solid red">bundle Component</div>
+<ul *ngFor ="let card of cards">
+  <li>{{card.nativeTerm}}</li>
+</ul>
+
+
+
+<div class="container">
+  <div class="button" (click)="shiftLeft()"><img src="https://image.ibb.co/mRsEb7/left_arrow.png" alt=""></div>
+  <div class="cards-wrapper">
+    <ul class="cards__container" *ngFor="let card of cards; let i=index">
+      <div *ngIf="i < 5; then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock>
+        <li class="box">{{card.nativeTerm}}</li>
+      </ng-template>
+      <ng-template #elseBlock>
+        <li class="box box--hide">{{card.nativeTerm}}</li>
+      </ng-template>
+      
+
+    </ul>
+
+  </div>
+  <div class="button" (click)="shiftRight()"><img src="https://image.ibb.co/dfPSw7/right_arrow.png" alt=""></div>
+</div>
